@@ -102,21 +102,13 @@ class Car {
     this.tank += gallons;
   }
 drive(distance) {
-  distance = this.tank * this.milesPerGallon;
-  this.odometer = this.odometer += distance;
+  const x = this.tank * this.milesPerGallon;
+  this.odometer += distance;
   this.tank -= (distance / this.milesPerGallon);
   return this.drive = `I ran out of fuel at ${this.odometer} miles!`;
 }
 }
-  // if (tank === 0) {
 
-//   }
-//   this.odometer = this.odometer += distance;
-//   this.tank = this.tank -= (milesPerGallon / distance);
-//     return this.drive = `I ran out of fuel at ${odometer} miles!`;
-// }
-
-// }
 
 /*
   TASK 3
@@ -189,8 +181,9 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student  {
    constructor(obj3) {
+    // super(obj3);
     this.name =  obj3.name;
     this.age = obj3.age;
     this.location = obj3.location;
@@ -208,14 +201,10 @@ class Student {
      return `Loving ${this.favSubjects}!`;
    }
    PRAssignment(subject) {
-    //  if (this.PRAssignment === true) {
-    //    return `${this.student.name} has submitted a correct PR for ${subject}`;
-    //  } else {
-       return `${this.student.name} has submitted a PR for ${subject}`;
-    //  }
+       return `${this.name} has submitted a PR for ${subject}`;
    }
    sprintChallenge(subject) {
-     return `${this.student.name} has begun sprint challenge on ${subject}`;
+     return `${this.name} has begun sprint challenge on ${subject}`;
    }
   
 }
@@ -233,8 +222,9 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager  {
    constructor (obj4) {
+    // super(obj4);
     this.name =  obj4.name;
     this.age = obj4.age;
     this.location = obj4.location;
@@ -245,10 +235,10 @@ class ProjectManager {
     this.favInstructor = obj4.favInstructor;
   }
   standUp(channel) {
-    return `${this.student.name} announces to ${channel}, @channel standy times!`;
+    return `${this.name} announces to ${channel}, @channel standy times!`;
   }
   debugsCode(student, subject) {
-    return `${this.name} debugs ${this.student.name}'s code on ${subject}`;
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
   demo(subject) {
     return `Today we are learning about ${subject}`;
