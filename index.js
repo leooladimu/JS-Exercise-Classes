@@ -27,7 +27,22 @@ class Airplane {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
+// class Fascist {
+//   constructor(name, country, gender) {
+//     this.name = name;
+//     this.country = country;
+//     this.gender = gender;
+//     this.isInOffice = false;
+//     this.sucks = true;
+//   }
 
+//   gotElected() {
+//     this.isInOffice = true;
+//   }
+//   gotExecuted() {
+//     this.isInOffice = false;
+//   }
+// }
 /*
   TASK 1
     - Write a Person class whose constructor initializes `name` and `age` from arguments.
@@ -39,11 +54,28 @@ class Airplane {
         + When an instance poops, its `stomach` should empty.
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
-*/
-
-class Person {
+  */
+        
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+      this.stomach = [];
+    }
   
-}
+  eat(someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    }
+  }
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
+  }
+  
 
 /*
   TASK 2
@@ -60,8 +92,31 @@ class Person {
 */
 
 class Car {
-  
+  constructor (model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    this.tank += gallons;
+  }
+drive(distance) {
+  distance = this.tank * this.milesPerGallon;
+  this.odometer = this.odometer += distance;
+  this.tank -= (distance / this.milesPerGallon);
+  return this.drive = `I ran out of fuel at ${this.odometer} miles!`;
 }
+}
+  // if (tank === 0) {
+
+//   }
+//   this.odometer = this.odometer += distance;
+//   this.tank = this.tank -= (milesPerGallon / distance);
+//     return this.drive = `I ran out of fuel at ${odometer} miles!`;
+// }
+
+// }
 
 /*
   TASK 3
@@ -76,7 +131,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
+  constructor(obj) {
+    this.name = obj.name;
+    this.age = obj.age;
+    this.location = obj.location;
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
 
 /*
@@ -94,7 +156,23 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
-
+  constructor(obj2) {
+    this.name =  obj2.name;
+    this.age = obj2.age;
+    this.location = obj2.location;
+    this.specialty = obj2.specialty;
+    this.favLanguage = obj2.favLanguage;
+    this.catchPhrase = obj2.catchPhrase;
+  }
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
 /*
   TASK 5
@@ -112,7 +190,34 @@ class Instructor {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student {
-   
+   constructor(obj3) {
+    this.name =  obj3.name;
+    this.age = obj3.age;
+    this.location = obj3.location;
+    this.specialty = obj3.specialty;
+    this.favLanguage = obj3.favLanguage;
+    this.catchPhrase = obj3.catchPhrase;
+    this.previousBackground = obj3.previousBackground;
+    this.className = obj3.className;
+    this.favSubjects = obj3.favSubjects;
+   }
+   speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
+   listSubjects() {
+     return `Loving ${this.favSubjects}!`;
+   }
+   PRAssignment(subject) {
+    //  if (this.PRAssignment === true) {
+    //    return `${this.student.name} has submitted a correct PR for ${subject}`;
+    //  } else {
+       return `${this.student.name} has submitted a PR for ${subject}`;
+    //  }
+   }
+   sprintChallenge(subject) {
+     return `${this.student.name} has begun sprint challenge on ${subject}`;
+   }
+  
 }
 
 /*
@@ -129,7 +234,31 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager {
-   
+   constructor (obj4) {
+    this.name =  obj4.name;
+    this.age = obj4.age;
+    this.location = obj4.location;
+    this.specialty = obj4.specialty;
+    this.favLanguage = obj4.favLanguage;
+    this.catchPhrase = obj4.catchPhrase;
+    this.gradClassName = obj4.gradClassName;
+    this.favInstructor = obj4.favInstructor;
+  }
+  standUp(channel) {
+    return `${this.student.name} announces to ${channel}, @channel standy times!`;
+  }
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${this.student.name}'s code on ${subject}`;
+  }
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
 /*
   STRETCH PROBLEM (no tests!)
